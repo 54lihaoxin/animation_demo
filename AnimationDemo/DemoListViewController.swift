@@ -17,6 +17,13 @@ final class DemoListViewController: UIViewController {
             return [wwdc2017]
         }()
         
+        static func section(for sectionNumber: Int) -> Section {
+            guard let section = Section(rawValue: sectionNumber) else {
+                fatalError()
+            }
+            return section
+        }
+        
         var description: String {
             switch self {
             case .wwdc2017:
@@ -26,16 +33,27 @@ final class DemoListViewController: UIViewController {
     }
     
     fileprivate enum WWDC2017Item: Int, CaseIterable, CustomStringConvertible {
-        case session230_AdvancedAnimationsWithUIKit
+        case session230_AdvancedAnimationsWithUIKitDemo1
+        case session230_AdvancedAnimationsWithUIKitDemo2
         
         static let allCases: [WWDC2017Item] = {
-            return [session230_AdvancedAnimationsWithUIKit]
+            return [session230_AdvancedAnimationsWithUIKitDemo1,
+                    session230_AdvancedAnimationsWithUIKitDemo2]
         }()
+        
+        static func item(for itemNumber: Int) -> WWDC2017Item {
+            guard let item = WWDC2017Item(rawValue: itemNumber) else {
+                fatalError()
+            }
+            return item
+        }
         
         var description: String {
             switch self {
-            case .session230_AdvancedAnimationsWithUIKit:
-                return "230 - Advanced Animations With UIKit"
+            case .session230_AdvancedAnimationsWithUIKitDemo1:
+                return "230.1 - Advanced Animations With UIKit Demo 1"
+            case .session230_AdvancedAnimationsWithUIKitDemo2:
+                return "230.2 - Advanced Animations With UIKit Demo 2"
             }
         }
     }
@@ -66,12 +84,7 @@ extension DemoListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sectionCase = Section(rawValue: section) else {
-            assertionFailure()
-            return 0
-        }
-        
-        switch sectionCase {
+        switch Section.section(for: section) {
         case .wwdc2017:
             return WWDC2017Item.allCases.count
         }
@@ -85,21 +98,11 @@ extension DemoListViewController: UITableViewDataSource {
 extension DemoListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let sectionCase = Section(rawValue: section) else {
-            assertionFailure()
-            return nil
-        }
-        
-        return sectionCase.description
+        return Section.section(for: section).description
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let section = Section(rawValue: indexPath.section) else {
-            assertionFailure()
-            return
-        }
-        
-        switch section {
+        switch Section.section(for: indexPath.section) {
         case .wwdc2017:
             guard let row = WWDC2017Item(rawValue: indexPath.row) else {
                 assertionFailure()
@@ -110,6 +113,19 @@ extension DemoListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO
+        guard let navigationController = navigationController else {
+            fatalError()
+        }
+        let viewControllerToPush: UIViewController
+        switch Section.section(for: indexPath.section) {
+        case .wwdc2017:
+            switch WWDC2017Item.item(for: indexPath.row) {
+            case .session230_AdvancedAnimationsWithUIKitDemo1:
+                viewControllerToPush = InteractiveSlidingBlockViewController()
+            case .session230_AdvancedAnimationsWithUIKitDemo2:
+                fatalError() // TODO
+            }
+        }
+        navigationController.pushViewController(viewControllerToPush, animated: true)
     }
 }

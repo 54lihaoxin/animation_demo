@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InteractiveSlidingBlockViewController" customModule="AnimationDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="slidingBar" destination="4rm-Ch-n3B" id="eH3-hh-j8F"/>
+                <outlet property="slidingShape" destination="nWM-zB-UZc" id="rsP-I9-EtU"/>
+                <outlet property="slidingShapeCenterXConstraint" destination="5xB-4r-icL" id="cea-Wu-xIJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="5ON-VR-5PQ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rm-Ch-n3B">
+                    <rect key="frame" x="44" y="333" width="287" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="kXN-fm-aBI"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAt-tX-eAb">
+                    <rect key="frame" x="38.5" y="378" width="11" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7E-Rm-UKx">
+                    <rect key="frame" x="316.5" y="378" width="29" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWM-zB-UZc">
+                    <rect key="frame" x="22" y="311" width="44" height="44"/>
+                    <color key="backgroundColor" red="0.5568627451" green="0.86666666670000003" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="XBO-du-Gor"/>
+                        <constraint firstAttribute="width" constant="44" id="XWY-Hm-0a6"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ie1-OW-3hR">
+                    <rect key="frame" x="168" y="434" width="39" height="30"/>
+                    <state key="normal" title="Reset"/>
+                    <connections>
+                        <action selector="resetSlidingShape:" destination="-1" eventType="touchUpInside" id="ibu-tg-O7e"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The shape will move to right after release" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9W7-Y9-qdJ">
+                    <rect key="frame" x="30.5" y="472" width="314.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use &quot;Reset&quot; after the shape reaches the right" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPl-sN-4Jt">
+                    <rect key="frame" x="14" y="500.5" width="347" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interactive &amp; Interruptable Animator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDg-cB-ugY">
+                    <rect key="frame" x="50.5" y="212" width="274" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nWM-zB-UZc" firstAttribute="centerX" secondItem="4rm-Ch-n3B" secondAttribute="leading" id="5xB-4r-icL"/>
+                <constraint firstItem="9W7-Y9-qdJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8Mn-Z1-LNQ"/>
+                <constraint firstItem="LDg-cB-ugY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Iga-my-Cfa"/>
+                <constraint firstItem="4rm-Ch-n3B" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="LLW-ul-vLD"/>
+                <constraint firstItem="nWM-zB-UZc" firstAttribute="centerY" secondItem="4rm-Ch-n3B" secondAttribute="centerY" id="LiM-UO-9kw"/>
+                <constraint firstItem="Ie1-OW-3hR" firstAttribute="centerX" secondItem="4rm-Ch-n3B" secondAttribute="centerX" id="O2F-70-9bu"/>
+                <constraint firstItem="rPl-sN-4Jt" firstAttribute="top" secondItem="9W7-Y9-qdJ" secondAttribute="bottom" constant="8" id="QH8-Nu-vV4"/>
+                <constraint firstItem="Ie1-OW-3hR" firstAttribute="top" secondItem="4rm-Ch-n3B" secondAttribute="bottom" constant="100" id="Shx-go-BgC"/>
+                <constraint firstItem="rPl-sN-4Jt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VaC-we-hbh"/>
+                <constraint firstItem="a7E-Rm-UKx" firstAttribute="centerX" secondItem="4rm-Ch-n3B" secondAttribute="trailing" id="bIU-ii-TD1"/>
+                <constraint firstItem="vAt-tX-eAb" firstAttribute="top" secondItem="4rm-Ch-n3B" secondAttribute="bottom" constant="44" id="c4k-vg-3S1"/>
+                <constraint firstItem="4rm-Ch-n3B" firstAttribute="top" secondItem="LDg-cB-ugY" secondAttribute="bottom" constant="100" id="dJY-16-jVY"/>
+                <constraint firstItem="4rm-Ch-n3B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="44" id="dfK-wZ-O9u"/>
+                <constraint firstItem="vAt-tX-eAb" firstAttribute="centerX" secondItem="4rm-Ch-n3B" secondAttribute="leading" id="ea2-a8-hiM"/>
+                <constraint firstItem="9W7-Y9-qdJ" firstAttribute="top" secondItem="Ie1-OW-3hR" secondAttribute="bottom" constant="8" id="nb9-6U-50S"/>
+                <constraint firstItem="a7E-Rm-UKx" firstAttribute="top" secondItem="4rm-Ch-n3B" secondAttribute="bottom" constant="44" id="oVK-ng-wbN"/>
+                <constraint firstAttribute="trailing" secondItem="4rm-Ch-n3B" secondAttribute="trailing" constant="44" id="tuy-la-L0V"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

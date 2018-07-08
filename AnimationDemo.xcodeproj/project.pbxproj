@@ -14,6 +14,8 @@
 		AC27169920F28E45001E4F33 /* NSObject+AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27169720F28E44001E4F33 /* NSObject+AppExtensions.swift */; };
 		AC27169A20F28E45001E4F33 /* UIView+AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27169820F28E44001E4F33 /* UIView+AppExtensions.swift */; };
 		AC27169C20F291CD001E4F33 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27169B20F291CD001E4F33 /* Protocols.swift */; };
+		AC2716A120F2932B001E4F33 /* InteractiveSlidingBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27169F20F2932B001E4F33 /* InteractiveSlidingBlockViewController.swift */; };
+		AC2716A220F2932B001E4F33 /* InteractiveSlidingBlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2716A020F2932B001E4F33 /* InteractiveSlidingBlockViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		AC27169720F28E44001E4F33 /* NSObject+AppExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+AppExtensions.swift"; sourceTree = "<group>"; };
 		AC27169820F28E44001E4F33 /* UIView+AppExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AppExtensions.swift"; sourceTree = "<group>"; };
 		AC27169B20F291CD001E4F33 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		AC27169F20F2932B001E4F33 /* InteractiveSlidingBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSlidingBlockViewController.swift; sourceTree = "<group>"; };
+		AC2716A020F2932B001E4F33 /* InteractiveSlidingBlockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InteractiveSlidingBlockViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC07755220F2C1A8004AA20F /* AppExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC27169720F28E44001E4F33 /* NSObject+AppExtensions.swift */,
+				AC27169820F28E44001E4F33 /* UIView+AppExtensions.swift */,
+			);
+			path = AppExtensions;
+			sourceTree = "<group>";
+		};
 		AC27167720F28891001E4F33 = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +71,25 @@
 		AC27168220F28891001E4F33 /* AnimationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AC2716A520F2C160001E4F33 /* WWDC2017 */,
+				AC07755220F2C1A8004AA20F /* AppExtensions */,
 				AC27168320F28891001E4F33 /* AppDelegate.swift */,
 				AC27169520F28926001E4F33 /* DemoListViewController.swift */,
-				AC27169720F28E44001E4F33 /* NSObject+AppExtensions.swift */,
 				AC27169B20F291CD001E4F33 /* Protocols.swift */,
-				AC27169820F28E44001E4F33 /* UIView+AppExtensions.swift */,
 				AC27168A20F28898001E4F33 /* Assets.xcassets */,
 				AC27168C20F28898001E4F33 /* LaunchScreen.storyboard */,
 				AC27168F20F28898001E4F33 /* Info.plist */,
 			);
 			path = AnimationDemo;
+			sourceTree = "<group>";
+		};
+		AC2716A520F2C160001E4F33 /* WWDC2017 */ = {
+			isa = PBXGroup;
+			children = (
+				AC27169F20F2932B001E4F33 /* InteractiveSlidingBlockViewController.swift */,
+				AC2716A020F2932B001E4F33 /* InteractiveSlidingBlockViewController.xib */,
+			);
+			name = WWDC2017;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC27168E20F28898001E4F33 /* LaunchScreen.storyboard in Resources */,
+				AC2716A220F2932B001E4F33 /* InteractiveSlidingBlockViewController.xib in Resources */,
 				AC27168B20F28898001E4F33 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +166,7 @@
 				AC27169C20F291CD001E4F33 /* Protocols.swift in Sources */,
 				AC27169920F28E45001E4F33 /* NSObject+AppExtensions.swift in Sources */,
 				AC27168420F28891001E4F33 /* AppDelegate.swift in Sources */,
+				AC2716A120F2932B001E4F33 /* InteractiveSlidingBlockViewController.swift in Sources */,
 				AC27169A20F28E45001E4F33 /* UIView+AppExtensions.swift in Sources */,
 				AC27169620F28926001E4F33 /* DemoListViewController.swift in Sources */,
 			);
