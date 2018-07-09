@@ -116,16 +116,14 @@ extension DemoListViewController: UITableViewDelegate {
         guard let navigationController = navigationController else {
             fatalError()
         }
-        let viewControllerToPush: UIViewController
         switch Section.section(for: indexPath.section) {
         case .wwdc2017:
             switch WWDC2017Item.item(for: indexPath.row) {
             case .session230_AdvancedAnimationsWithUIKitDemo1:
-                viewControllerToPush = InteractiveSlidingBlockViewController()
+                navigationController.pushViewController(InteractiveSlidingBlockViewController(), animated: true)
             case .session230_AdvancedAnimationsWithUIKitDemo2:
-                fatalError() // TODO
+                navigationController.pushViewController(InteractiveSlideUpCommentViewController(), animated: true)
             }
         }
-        navigationController.pushViewController(viewControllerToPush, animated: true)
     }
 }

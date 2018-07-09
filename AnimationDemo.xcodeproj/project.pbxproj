@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC07755520F316DA004AA20F /* InteractiveSlideUpCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07755320F316DA004AA20F /* InteractiveSlideUpCommentViewController.swift */; };
+		AC07755620F316DA004AA20F /* InteractiveSlideUpCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC07755420F316DA004AA20F /* InteractiveSlideUpCommentViewController.xib */; };
 		AC27168420F28891001E4F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27168320F28891001E4F33 /* AppDelegate.swift */; };
 		AC27168B20F28898001E4F33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC27168A20F28898001E4F33 /* Assets.xcassets */; };
 		AC27168E20F28898001E4F33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC27168C20F28898001E4F33 /* LaunchScreen.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC07755320F316DA004AA20F /* InteractiveSlideUpCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSlideUpCommentViewController.swift; sourceTree = "<group>"; };
+		AC07755420F316DA004AA20F /* InteractiveSlideUpCommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InteractiveSlideUpCommentViewController.xib; sourceTree = "<group>"; };
 		AC27168020F28891001E4F33 /* AnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC27168320F28891001E4F33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC27168A20F28898001E4F33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 		AC2716A520F2C160001E4F33 /* WWDC2017 */ = {
 			isa = PBXGroup;
 			children = (
+				AC07755320F316DA004AA20F /* InteractiveSlideUpCommentViewController.swift */,
+				AC07755420F316DA004AA20F /* InteractiveSlideUpCommentViewController.xib */,
 				AC27169F20F2932B001E4F33 /* InteractiveSlidingBlockViewController.swift */,
 				AC2716A020F2932B001E4F33 /* InteractiveSlidingBlockViewController.xib */,
 			);
@@ -152,6 +158,7 @@
 			files = (
 				AC27168E20F28898001E4F33 /* LaunchScreen.storyboard in Resources */,
 				AC2716A220F2932B001E4F33 /* InteractiveSlidingBlockViewController.xib in Resources */,
+				AC07755620F316DA004AA20F /* InteractiveSlideUpCommentViewController.xib in Resources */,
 				AC27168B20F28898001E4F33 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC27169C20F291CD001E4F33 /* Protocols.swift in Sources */,
+				AC07755520F316DA004AA20F /* InteractiveSlideUpCommentViewController.swift in Sources */,
 				AC27169920F28E45001E4F33 /* NSObject+AppExtensions.swift in Sources */,
 				AC27168420F28891001E4F33 /* AppDelegate.swift in Sources */,
 				AC2716A120F2932B001E4F33 /* InteractiveSlidingBlockViewController.swift in Sources */,
