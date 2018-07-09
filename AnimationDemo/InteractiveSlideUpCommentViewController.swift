@@ -8,23 +8,26 @@
 
 import UIKit
 
-class InteractiveSlideUpCommentViewController: UIViewController {
+final class InteractiveSlideUpCommentViewController: UIViewController {
 
     @IBOutlet fileprivate weak var imageView: UIImageView!
-    private var originalHideNavigationBarOnTap = false
+    private var _originalHideNavigationBarOnTap = false
+    private var _navigationController: UINavigationController? // `navigationController` is nil when didMove(toParentViewController parent:) is called for dismiss
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let nav = navigationController {
-            originalHideNavigationBarOnTap = nav.hidesBarsOnTap
+            _navigationController = nav
+            _originalHideNavigationBarOnTap = nav.hidesBarsOnTap
             nav.hidesBarsOnTap = true
         }
     }
     
     override func didMove(toParentViewController parent: UIViewController?) {
         super.didMove(toParentViewController: parent)
-        if parent == nil, let nav = navigationController {
-            nav.hidesBarsOnTap = originalHideNavigationBarOnTap
+        if parent == nil, let nav = _navigationController {
+            _navigationController = nil
+            nav.hidesBarsOnTap = _originalHideNavigationBarOnTap
         }
     }
 }
