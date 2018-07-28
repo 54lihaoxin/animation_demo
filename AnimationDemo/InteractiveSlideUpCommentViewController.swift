@@ -13,6 +13,7 @@ final class InteractiveSlideUpCommentViewController: UIViewController {
     fileprivate lazy var slideUpCommentViewAnimator: UIViewPropertyAnimator = {
         let animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1) {
             self.commentContainerViewBottomConstraint.constant = 0 // Note: this constant won't be changed during the lifetime of this animator
+            self.blurEffectView.effect = UIBlurEffect(style: .dark)
             self.view.layoutIfNeeded()
         }
         animator.pauseAnimation()
@@ -20,6 +21,7 @@ final class InteractiveSlideUpCommentViewController: UIViewController {
         return animator
     }()
     
+    private let blurEffectView = UIVisualEffectView() // start with no effect, and animatable
     private var _originalHideNavigationBarOnTap = false
     private var _navigationController: UINavigationController? // `navigationController` is nil when didMove(toParentViewController parent:) is called for dismiss
     @IBOutlet private weak var imageView: UIImageView!
@@ -47,6 +49,8 @@ final class InteractiveSlideUpCommentViewController: UIViewController {
         super.viewDidLoad()
         
         title = "WWDC 2017 - 230.2"
+        view.insertSubview(blurEffectView, belowSubview: commentContainerView)
+        blurEffectView.activateLayoutAnchorsWithSuperView()
         
         commentContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapOnCommentContainer(_:))))
         commentContainerView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanOnCommentContainer(_:))))
