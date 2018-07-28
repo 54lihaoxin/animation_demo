@@ -12,8 +12,17 @@ final class InteractiveSlideUpCommentViewController: UIViewController {
     
     fileprivate lazy var slideUpCommentViewAnimator: UIViewPropertyAnimator = {
         let animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1) {
+            
+            self.blurEffectView.effect = UIBlurEffect(style: .dark) // Note: no handling to pass touches behind this view yet
+            
             self.commentContainerViewBottomConstraint.constant = 0 // Note: this constant won't be changed during the lifetime of this animator
-            self.blurEffectView.effect = UIBlurEffect(style: .dark)
+            
+            // transform the Comments title
+            self.commentContainerView.titleLabel.transform = InteractiveSlideUpCommentContainerView.titleScaleTransform
+            self.commentContainerView.titleLabel.alpha = 0
+            self.commentContainerView.titleLabelTransformed.transform = CGAffineTransform.identity
+            self.commentContainerView.titleLabelTransformed.alpha = 1
+            
             self.view.layoutIfNeeded()
         }
         animator.pauseAnimation()
@@ -60,7 +69,15 @@ final class InteractiveSlideUpCommentViewController: UIViewController {
 final class InteractiveSlideUpCommentContainerView: UIView {
     
     static let contentHeight: CGFloat = 320 // the height of content below the "Comments" title
-    @IBOutlet private weak var titleLabel: UILabel!
+    static let titleScaleTransform = CGAffineTransform(scaleX: 1.6, y: 1.5) // a rough scale transform for `titleLabel` and `titleLabelTransformed`
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabelTransformed: UILabel! {
+        didSet {
+            titleLabelTransformed.alpha = 0 // hidden by default
+            titleLabelTransformed.transform = InteractiveSlideUpCommentContainerView.titleScaleTransform.inverted() // make smaller by default
+        }
+    }
 }
 
 // MARK: - Private helpers
