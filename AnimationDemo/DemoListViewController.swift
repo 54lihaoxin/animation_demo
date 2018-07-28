@@ -13,9 +13,7 @@ final class DemoListViewController: UIViewController {
     fileprivate enum Section: Int, CaseIterable, CustomStringConvertible {
         case wwdc2017
         
-        static let allCases: [Section] = {
-            return [wwdc2017]
-        }()
+        static let allCases: [Section] = [wwdc2017]
         
         static func section(for sectionNumber: Int) -> Section {
             guard let section = Section(rawValue: sectionNumber) else {
