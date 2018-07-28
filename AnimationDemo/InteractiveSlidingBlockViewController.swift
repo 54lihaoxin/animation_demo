@@ -23,7 +23,7 @@ final class InteractiveSlidingBlockViewController: UIViewController {
     
     init() {
         super.init(nibName: InteractiveSlidingBlockViewController.className, bundle: nil)
-        title = "WWDC 2017 - 230"
+        title = "WWDC 2017 - 230.1"
     }
     
     override func viewDidLoad() {

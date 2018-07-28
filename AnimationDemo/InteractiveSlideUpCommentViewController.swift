@@ -45,6 +45,9 @@ final class InteractiveSlideUpCommentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "WWDC 2017 - 230.2"
+        
         commentContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapOnCommentContainer(_:))))
         commentContainerView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanOnCommentContainer(_:))))
     }
