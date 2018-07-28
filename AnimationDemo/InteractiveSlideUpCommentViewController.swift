@@ -10,6 +10,10 @@ import UIKit
 
 final class InteractiveSlideUpCommentViewController: UIViewController {
     
+    // Since the WWDC 2017 [230] video doesn't bother to show how the clean up the animators properly, here only on animator is defined
+    // with all animating parts enclosed. This also means they have the same timing curve... But the idea is mostly here. Of course,
+    // the disadvantage is this `slideUpCommentViewAnimator` is always living with the view controller in this example, and the changes
+    // only happen to the presentation layer, not the view model later. This probably is not the best practice, but it works fine so far.
     fileprivate lazy var slideUpCommentViewAnimator: UIViewPropertyAnimator = {
         let animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1) {
             
@@ -22,6 +26,10 @@ final class InteractiveSlideUpCommentViewController: UIViewController {
             self.commentContainerView.titleLabel.alpha = 0
             self.commentContainerView.titleLabelTransformed.transform = CGAffineTransform.identity
             self.commentContainerView.titleLabelTransformed.alpha = 1
+            
+            // round only the top corners
+            self.commentContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            self.commentContainerView.layer.cornerRadius = 22
             
             self.view.layoutIfNeeded()
         }
